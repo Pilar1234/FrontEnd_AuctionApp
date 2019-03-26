@@ -1,0 +1,17 @@
+.container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+input.ng-valid,
+textarea.ng-valid {
+  border-left: 5px solid #42A948;
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/check.svg);
+  background-size: 15px;
+  background-repeat: no-repeat;
+}
+
+/*input.ng-invalid,*/
+/*textarea.ng-invalid {*/
+  /*border-left: 5px solid #a94442;*/
+/*}*/

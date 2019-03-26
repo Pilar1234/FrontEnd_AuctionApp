@@ -1,0 +1,37 @@
+<div class="container">
+    <h1>Dodaj człowieczka</h1>
+    <hr/>
+    <form [formGroup]="userForm">
+        <div class="row">
+            <div class="col-lg-5 col-md-12 col-sm-12">
+
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <label for="login">Login</label>
+                        <input type="text" id="login" formControlName="login" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="firstName">Imię</label>
+                    <input type="text" id="firstName" formControlName="firstName" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="secondName">Nazwisko</label>
+                    <input type="text" id="secondName" formControlName="secondName" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" id="email" formControlName="email" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-success" style="margin-right: 5px;" [disabled]="!userForm.valid"
+                        (click)="onSubmit()">Save
+                </button>
+                <button type="button" class="btn btn-danger" style="margin-right: 5px;" routerLink="/auction-list">
+                    Powrót do głównego menu
+                </button>
+                <button type="button" class="btn btn-warning" (click)="clearInputs()">Resetuj dane</button>
+
+            </div>
+        </div>
+    </form>
+</div>

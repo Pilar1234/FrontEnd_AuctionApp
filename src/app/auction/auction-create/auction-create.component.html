@@ -1,0 +1,71 @@
+<div class="container" xmlns="http://www.w3.org/1999/html">
+  <h1>Dodaj aukcje</h1>
+  <hr/>
+  <form [formGroup]="auctionForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Nazwa aukcji</label>
+      <input type="text" id="name" formControlName="auctionName" class="form-control">
+
+      <!--error block-->
+      <div class="alert alert-danger" *ngIf="auctionForm.get('auctionName').hasError('required') && auctionForm.get('auctionName').touched">
+        Wymagana nazwa aukcji
+      </div>
+      <div class="alert alert-danger" *ngIf="auctionForm.get('auctionName').errors?.minlength">
+        10 znaków minimum
+      </div>
+      <div class="alert alert-danger" *ngIf="auctionForm.get('auctionName').errors?.maxlength">
+        Nie można więcej jak 15 znaków
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="price">Cena wywoławcza</label>
+      <input type="number" id="price" formControlName="auctionStartPrice" class="form-control">
+
+      <!--error block-->
+      <div class="alert alert-danger" *ngIf="auctionForm.get('auctionStartPrice').hasError('required') && auctionForm.get('auctionStartPrice').touched">
+        Hajsik wymagany
+      </div>
+      <div class="alert alert-danger" *ngIf="auctionForm.get('auctionStartPrice').errors?.lessThanZero">
+        Hajsik nie może być niejszy niż 0
+      </div>
+      <div class="alert alert-danger" *ngIf="auctionForm.get('auctionStartPrice').errors?.biggerThan1500">
+        Uuu za drogo...daj mniej niż 1500
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="description">Opis aukcji</label>
+      <textarea type="text" id="description" formControlName="auctionDescription" class="form-control"></textarea>
+        <!--error block-->
+        <div class="alert alert-danger" *ngIf="auctionForm.get('auctionDescription').hasError('required') && auctionForm.get('auctionDescription').touched">
+            Skąd mam wiedzieć czego dotyczy aukcja??
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="auctionType">Typ aukcji</label>
+      <select id="auctionType" class="form-control" name="auctionType">
+        <option>Licytacja</option>
+        <option>Kup teraz</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="endDate">Data zakończenia aukcji</label>
+      <input type="datetime" id="endDate" placeholder="YYYY-MM-DD" formControlName="auctionEndDate" class="form-control">
+      <!--error block-->
+      <div class="alert alert-danger" *ngIf="auctionForm.get('auctionEndDate').hasError('required') && auctionForm.get('auctionEndDate').touched">
+        Data zakończenia aukcji wymagana
+      </div>
+      <div class="alert alert-danger" *ngIf="auctionForm.get('auctionEndDate').errors?.pattern">
+        Data powinna być wg nastepującego wzorca: rok-miesiąc-dzień
+      </div>
+    </div>
+      <div class="form-group">
+      <label for="image">Wczytaj zdjęcie</label>
+        <div class="input-group">
+            <input type="file" id="image" value="Wczytaj">
+        </div>
+      </div>
+    <button type="submit" class="btn btn-success" style="margin-right: 5px;" [disabled]="auctionForm.invalid">Save</button>
+    <button type="button" class="btn btn-danger" style="margin-right: 5px;" routerLink="/auction-list">Powrót do listy aukcji</button>
+    <button type="button" class="btn btn-warning" (click)="clearInputs()">Resetuj dane</button>
+  </form>
+</div>

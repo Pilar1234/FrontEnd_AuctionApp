@@ -1,7 +1,20 @@
 <app-navbar></app-navbar>
-<div style="margin-top: 50px;">
-    <router-outlet></router-outlet>
-</div>
-<app-footer></app-footer>
-
 <!--@TODO: naprawić navbar żeby żeby nie było tego 50px-->
+<div class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
+    <div class="bg-light border-right" id="sidebar-wrapper">
+        <div class="list-group list-group-flush">
+            <button class="w3-bar-item w3-button w3-large bg-dark" (click)="w3_close()">Close &times;</button>
+            <a href="#" class="list-group-item list-group-item-action bg-dark">Dashboard</a>
+            <a href="#" class="list-group-item list-group-item-action bg-dark">Shortcuts</a>
+            <a href="#" class="list-group-item list-group-item-action bg-dark">Overview</a>
+            <a href="#" class="list-group-item list-group-item-action bg-dark">Events</a>
+            <a href="#" class="list-group-item list-group-item-action bg-dark">Profile</a>
+        </div>
+    </div>
+</div>
+
+<div id="main" >
+    <button id="openNav" class="w3-button w3-teal w3-xlarge" (click)="w3_open()">&#9776;</button>
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+</div>

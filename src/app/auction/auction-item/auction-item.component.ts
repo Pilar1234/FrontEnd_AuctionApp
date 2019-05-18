@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Auction} from '../auction';
+import {AuctionModel} from '../auction-shared/auction.model';
 
 @Component({
   selector: 'app-auction-item',
@@ -7,7 +7,7 @@ import {Auction} from '../auction';
   styleUrls: ['./auction-item.component.css']
 })
 export class AuctionItemComponent implements OnInit {
-  @Input() auction: Auction;
+  @Input() auction: AuctionModel;
   @Input() index: number;
 
   constructor() {

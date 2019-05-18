@@ -19,14 +19,10 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
-              "src/CapgeminiFavicon.png",
               "src/assets"
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "node_modules/primeicons/primeicons.css",
-              "node_modules/primeng/resources/themes/nova-light/theme.css",
-              "node_modules/primeng/resources/primeng.min.css",
               "node_modules/ngx-toastr/toastr.css",
               "src/styles.css"
             ],
@@ -89,7 +85,6 @@
             ],
             "scripts": [],
             "assets": [
-              "src/CapgeminiFavicon.png",
               "src/assets"
             ]
           }

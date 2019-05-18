@@ -1,9 +1,9 @@
 import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
 import {HomeComponent} from './home/home.component';
 import {FooterComponent} from './footer/footer.component';
 import {AppRoutingModule} from '../app-routing.module';
 import {NavbarComponent} from './navbar/navbar.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +12,7 @@ import {NavbarComponent} from './navbar/navbar.component';
     NavbarComponent
   ],
   imports: [
-    CommonModule,
+    SharedModule,
     AppRoutingModule
   ],
   exports: [

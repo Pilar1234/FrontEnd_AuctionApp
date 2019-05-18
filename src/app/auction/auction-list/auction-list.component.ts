@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {AuctionService} from '../auction.service';
-import {HttpClient} from '@angular/common/http';
+import {AuctionService} from '../auction-shared/auction.service';
+import { AuctionModel } from '../auction-shared/auction.model';
 
 @Component({
     selector: 'app-auction-list',
@@ -8,16 +8,13 @@ import {HttpClient} from '@angular/common/http';
     styleUrls: ['./auction-list.component.css']
 })
 export class AuctionListComponent implements OnInit {
-    auctions: any = [];
+    auctions: AuctionModel[] = [];
 
-    constructor(private httpClient: HttpClient, private auctionService: AuctionService) {
+    constructor(private auctionService: AuctionService) {
     }
 
     ngOnInit() {
-        console.log(this.auctionService.getAuctions());
-        this.auctionService.getAuctions().subscribe((data: {}) => {
-            this.auctions = data;
-        });
+        this.auctions = this.auctionService.auctions;
     }
 
 //    @TODO: nie wyświetla danych aukcji

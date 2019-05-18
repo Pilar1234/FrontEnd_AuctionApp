@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {AuctionService} from '../auction.service';
-import {ToastrService} from 'ngx-toastr';
-import {biggerThan1500Validator, lessThanZeroValidator} from '../custom-validator';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuctionService } from '../auction-shared/auction.service';
+import { ToastrService } from 'ngx-toastr';
+import { biggerThan1500Validator, lessThanZeroValidator } from '../auction-shared/custom-validator';
 
 @Component({
     selector: 'app-auction-create',
@@ -10,16 +10,18 @@ import {biggerThan1500Validator, lessThanZeroValidator} from '../custom-validato
     styleUrls: ['./auction-create.component.css']
 })
 export class AuctionCreateComponent implements OnInit {
-    auctionForm: FormGroup;
+    private auctionForm: FormGroup;
 
-    auctionNameValidators: Validators[] = [Validators.required, Validators.minLength(10), Validators.maxLength(15)];
-    auctionPriceValidators: Validators[] = [Validators.required, lessThanZeroValidator, biggerThan1500Validator];
-    auctionDescriptionValidators: Validators[] = [Validators.required];
-    auctionType: Validators[] = [Validators.required];
-    auctionEndDate: Validators[] = [Validators.required, Validators.pattern('[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])')];
-    auctionImagePath: Validators[] = [Validators.required];
+    private auctionNameValidators: Validators[] = [Validators.required, Validators.minLength(10), Validators.maxLength(15)];
+    private auctionPriceValidators: Validators[] = [Validators.required, lessThanZeroValidator, biggerThan1500Validator];
+    private auctionDescriptionValidators: Validators[] = [Validators.required];
+    private auctionType: Validators[] = [Validators.required];
+    private auctionEndDate: Validators[] = [Validators.required, Validators.pattern('[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])')];
+    private auctionImagePath: Validators[] = [Validators.required];
 
-    constructor(private fb: FormBuilder, private toastr: ToastrService, private auctionService: AuctionService) {
+    constructor(private fb: FormBuilder,
+                private toastr: ToastrService,
+                private auctionService: AuctionService) {
     }
 
     ngOnInit() {
@@ -32,7 +34,6 @@ export class AuctionCreateComponent implements OnInit {
             // auctionImagePath: ['', this.auctionImagePath],
         });
         // this.initForm();
-        this.auctionService.getAuctions();
     }
 
     clearInputs() {

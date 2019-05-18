@@ -1,4 +1,4 @@
-export class Auction {
+export class AuctionModel {
     id: number;
     auctionName: string;
     auctionStartPrice: number;

@@ -1,18 +1,22 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {ReactiveFormsModule, FormsModule} from '@angular/forms';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ErrorMessageComponent } from './error-message/error-message.component';
 
 @NgModule({
-    declarations: [],
+    declarations: [
+        ErrorMessageComponent
+    ],
     imports: [
         CommonModule,
         FormsModule,
-        ReactiveFormsModule,
+        ReactiveFormsModule
     ],
     exports: [
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
+        ErrorMessageComponent
     ]
 })
 export class SharedModule {

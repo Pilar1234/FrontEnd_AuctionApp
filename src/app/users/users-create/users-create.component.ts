@@ -1,6 +1,8 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { UserFormValidationService } from '../users-shared/user-form-validation.service';
+import { UserModel } from '../users-shared/user.model';
 import { UserService } from '../users-shared/user.service';
 
 @Component({
@@ -10,22 +12,22 @@ import { UserService } from '../users-shared/user.service';
 })
 export class UsersCreateComponent implements OnInit {
     private userForm: FormGroup;
-
+    private inputsArray: any[];
+    private user = {} as UserModel;
+    
     constructor(private toastr: ToastrService,
+                private userFormValidation: UserFormValidationService,
                 private userService: UserService) {
     }
 
     ngOnInit() {
-        this.initForm();
-    }
-
-    private initForm() {
-        this.userForm = new FormGroup({
-            login: new FormControl('', [Validators.required]),
-            firstName: new FormControl('', [Validators.required]),
-            secondName: new FormControl('', Validators.required),
-            email: new FormControl('', [Validators.required, Validators.email]),
-        });
+        this.inputsArray = [
+            { field: 'login', header: 'Login' },
+            { field: 'firstName', header: 'First Name' },
+            { field: 'secondName', header: 'Second Name' },
+            { field: 'email', header: 'Email' },
+        ];
+        this.userForm = this.userFormValidation.initForm(this.user);
     }
 
     clearInputs() {
@@ -33,7 +35,6 @@ export class UsersCreateComponent implements OnInit {
     }
 
     onSubmit() {
-        
         this.toastr.success('Uczestnik pomyślnie dodany');
         this.userService.addUser(this.userForm.value).subscribe(
             (response) => console.log(response)

@@ -1,14 +1,16 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
-import { CoreModule } from './core/core.module';
-import { HttpClientModule } from '@angular/common/http';
-import { AuctionService } from './auction/auction-shared/auction.service';
-import { ToastrModule } from 'ngx-toastr';
-import { UserService } from './users/users-shared/user.service';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { SharedModule } from 'primeng/primeng';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { AuctionService } from './auction/auction-shared/auction.service';
+import { CoreModule } from './core/core.module';
+import { HttpErrorInterceptor } from './shared/http-error.interceptor';
+import { HttpService } from './shared/http.service';
+import { UserService } from './users/users-shared/user.service';
 
 @NgModule({
     declarations: [
@@ -18,13 +20,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         BrowserModule,
         BrowserAnimationsModule,
         HttpClientModule,
+        SharedModule,
         CoreModule,
         ToastrModule.forRoot(),
         AppRoutingModule,
     ],
     providers: [
+         {
+        provide: HTTP_INTERCEPTORS,
+        useClass: HttpErrorInterceptor,
+        multi: true
+      },
         AuctionService,
-        UserService
+        UserService,
+        HttpService
     ],
     bootstrap: [AppComponent]
 })

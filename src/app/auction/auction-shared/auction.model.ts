@@ -1,4 +1,4 @@
-export class AuctionModel {
+export interface AuctionModel {
     id: number;
     auctionName: string;
     auctionStartPrice: number;
@@ -8,8 +8,4 @@ export class AuctionModel {
     auctionType: string;
     auctionEndDate: Date;
     auctionStartDate: Date;
-
-    constructor() {
-        this.auctionStartDate = new Date();
-    }
 }

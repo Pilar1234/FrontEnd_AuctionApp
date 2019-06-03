@@ -5,10 +5,10 @@ import { UserModel } from './user.model';
 @Injectable()
 export class UserFormValidationService {
   private userForm: FormGroup;
-  private loginValidators: Validators[] = [Validators.required];
-  private firstNameValidators: Validators[] = [Validators.required];
-  private secondNameValidators: Validators[] = [Validators.required];
-  private emailValidators: Validators[] = [Validators.required, Validators.email];
+  private loginValidators = [Validators.required];
+  private firstNameValidators = [Validators.required];
+  private secondNameValidators = [Validators.required];
+  private emailValidators = [Validators.required, Validators.email];
 
   constructor(private fb: FormBuilder) {
   }

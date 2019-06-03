@@ -1,31 +1,36 @@
-import { TestBed, async } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import {TestBed, async} from '@angular/core/testing';
+import {AppComponent} from './app.component';
+import {CoreModule} from './core/core.module';
+import {RouterTestingModule} from '@angular/router/testing';
+import {Routes} from '@angular/router';
+import {HomeComponent} from './core/home/home.component';
+import {SharedModule} from './shared/shared.module';
 
 describe('AppComponent', () => {
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
-    }).compileComponents();
-  }));
+    const routes: Routes = [
+        {path: '', redirectTo: 'home', pathMatch: 'full'},
+        {path: 'home', component: HomeComponent},
+        {path: '', loadChildren: './auction/auction.module#AuctionModule'},
+        {path: '', loadChildren: './users/users.module#UsersModule'},
+    ];
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  });
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            declarations: [
+                AppComponent
+            ],
+            imports: [
+                RouterTestingModule.withRoutes(routes),
+                CoreModule,
+                SharedModule,
+            ]
+        }).compileComponents();
+    }));
 
-  it(`should have as title 'front-end-KGHM'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('front-end-KGHM');
-  });
+    it('should create the app', () => {
+        const fixture = TestBed.createComponent(AppComponent);
+        const app = fixture.debugElement.componentInstance;
+        expect(app).toBeTruthy();
+    });
 
-  it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to front-end-KGHM!');
-  });
 });

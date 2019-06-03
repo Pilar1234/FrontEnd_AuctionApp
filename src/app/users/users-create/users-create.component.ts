@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
-import { UserFormValidationService } from '../users-shared/user-form-validation.service';
-import { UserModel } from '../users-shared/user.model';
-import { UserService } from '../users-shared/user.service';
+import {Component, OnInit} from '@angular/core';
+import {FormGroup} from '@angular/forms';
+import {ToastrService} from 'ngx-toastr';
+import {UserFormValidationService} from '../users-shared/user-form-validation.service';
+import {UserModel} from '../users-shared/user.model';
+import {UserService} from '../users-shared/user.service';
 
 @Component({
     selector: 'app-users-create',
@@ -14,7 +14,7 @@ export class UsersCreateComponent implements OnInit {
     private userForm: FormGroup;
     private inputsArray: any[];
     private user = {} as UserModel;
-    
+
     constructor(private toastr: ToastrService,
                 private userFormValidation: UserFormValidationService,
                 private userService: UserService) {

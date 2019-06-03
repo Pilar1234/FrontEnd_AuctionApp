@@ -4,8 +4,7 @@ import {AuctionListComponent} from './auction-list/auction-list.component';
 import {AuctionCreateComponent} from './auction-create/auction-create.component';
 import {AuctionRoutingModule} from './auction-routing.module';
 import {AuctionItemComponent} from './auction-item/auction-item.component';
-import {ToastModule} from 'primeng/toast';
-import { SharedModule } from '../shared/shared.module';
+import {SharedModule} from '../shared/shared.module';
 
 @NgModule({
     declarations: [
@@ -15,7 +14,6 @@ import { SharedModule } from '../shared/shared.module';
     ],
     imports: [
         SharedModule,
-        ToastModule,
         AuctionRoutingModule
     ]
 })

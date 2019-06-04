@@ -1,25 +1,50 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark p-1 shadow">
-  <a class="navbar-brand" routerLink="/">Main</a>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" routerLink="/auction-list">Lista z aukcjami</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" routerLink="/auction-create">Dodaj aukcje</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" routerLink="/user-create">Dodaj człowieczka</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" routerLink="/user-list">Lista człowieczków</a>
-      </li>
-      <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Wpisz nazwę aukcji" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Szukaj aukcji</button>
-      </form>
-    </ul>
-    <button type="button" class="btn btn-primary">Random button</button>
-    <button type="button" class="btn btn-danger">Zaloguj się</button>
-  </div>
+    <a class="navbar-brand" routerLink="/">Main</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/auction-list" routerLinkActive="active">Lista z aukcjami</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/auction-create" routerLinkActive="active">Dodaj aukcje</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/user-create" routerLinkActive="active">Dodaj człowieczka</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/user-list" routerLinkActive="active">Lista człowieczków</a>
+            </li>
+            <form class="form-inline">
+                <input aria-label="Search" class="form-control mr-sm-2" placeholder="Wpisz nazwę aukcji" type="search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search auction</button>
+            </form>
+        </ul>
+        <button class="btn btn-primary" type="button">Random button</button>
+        <button class="btn btn-danger" data-target="#modal" data-toggle="modal" type="button">Log In</button>
+    </div>
 </nav>
+<div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="modal" role="dialog" tabindex="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Log In</h5>
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="col-form-label" for="email">E-mail:</label>
+                    <input class="form-control" id="email" placeholder="example@gmail.com" type="text">
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label" for="password">Password:</label>
+                    <input class="form-control" id="password" type="password">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger" type="button">Login</button>
+            </div>
+        </div>
+    </div>
+</div>

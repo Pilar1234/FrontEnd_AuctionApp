@@ -1,0 +1,74 @@
+.w3-button {
+  border: none;
+  display: inline-block;
+  padding: 8px 16px;
+  vertical-align: middle;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background-color: inherit;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap
+}
+
+.w3-button:hover {
+  color: #000 !important;
+  background-color: #ccc !important
+}
+
+.w3-sidebar {
+  height: 100%;
+  width: 200px;
+  position: fixed !important;
+  z-index: 1;
+  overflow: auto;
+}
+
+#main {
+  transition: margin-left .4s;
+  margin-top: 50px;
+}
+
+.w3-bar-block .w3-bar-item {
+  width: 100%;
+  display: block;
+  padding: 8px 16px;
+  text-align: left;
+  border: none;
+  white-space: normal;
+  float: none;
+  outline: 0
+}
+
+.w3-animate-left {
+  position: relative;
+  animation: animateleft 0.4s
+}
+
+@keyframes animateleft {
+  from {
+    left: -300px;
+    opacity: 0
+  }
+  to {
+    left: 0;
+    opacity: 1
+  }
+}
+
+.w3-xlarge {
+  font-size: 24px !important
+}
+
+.w3-teal, .w3-hover-teal:hover {
+  color: #fff !important;
+  background-color: #960406 !important
+}
+
+#openNav {
+  z-index: 1;
+  position: absolute;
+  top: 55px;
+  left: 15px;
+}

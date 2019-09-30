@@ -4,17 +4,17 @@
     <form [formGroup]="userForm">
         <div class="row">
             <div class="col-lg-5 col-md-12 col-sm-12">
-                <div class="form-group" *ngFor="let input of inputsArray">
+                <div *ngFor="let input of inputsArray" class="form-group">
                     <label for="{{input.field}}">{{input.header}}</label>
-                    <input type="text" id="{{input.field}}" formControlName="{{input.field}}" class="form-control">
+                    <input class="form-control" formControlName="{{input.field}}" id="{{input.field}}" type="text">
                     <app-error-message [control]="userForm.controls[input.field]"></app-error-message>
                 </div>
-                <button type="submit" class="btn btn-success" [disabled]="!userForm.valid" (click)="onSubmit()">Register
+                <button (click)="onSubmit()" [disabled]="!userForm.valid" class="btn btn-success" type="submit">Register
                 </button>
-                <button type="button" class="btn btn-danger" routerLink="/auction-list">
+                <button class="btn btn-danger" routerLink="/auction-list" type="button">
                     Return to main page
                 </button>
-                <button type="button" class="btn btn-warning" (click)="clearInputs()">Clear inputs</button>
+                <button (click)="clearInputs()" class="btn btn-warning" type="button">Clear inputs</button>
             </div>
         </div>
     </form>

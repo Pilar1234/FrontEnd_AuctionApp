@@ -1,4 +1,4 @@
-import {TestBed, async} from '@angular/core/testing';
+import {async, TestBed} from '@angular/core/testing';
 import {AppComponent} from './app.component';
 import {CoreModule} from './core/core.module';
 import {RouterTestingModule} from '@angular/router/testing';

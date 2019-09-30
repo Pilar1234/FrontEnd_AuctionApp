@@ -4,15 +4,15 @@ import {AuctionListComponent} from './auction-list/auction-list.component';
 import {AuctionCreateComponent} from './auction-create/auction-create.component';
 
 const auctionRoutes: Routes = [
-      {path: 'auction-list', component: AuctionListComponent},
-      {path: 'auction-create', component: AuctionCreateComponent}
+    {path: 'auction-list', component: AuctionListComponent},
+    {path: 'auction-create', component: AuctionCreateComponent}
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forChild(auctionRoutes)
-  ],
-  exports: [RouterModule]
+    imports: [
+        RouterModule.forChild(auctionRoutes)
+    ],
+    exports: [RouterModule]
 })
 export class AuctionRoutingModule {
 }

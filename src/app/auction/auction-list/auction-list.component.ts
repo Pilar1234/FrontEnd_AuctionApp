@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuctionService} from '../auction-shared/auction.service';
-import { AuctionModel } from '../auction-shared/auction.model';
+import {AuctionModel} from '../auction-shared/auction.model';
 
 @Component({
     selector: 'app-auction-list',
